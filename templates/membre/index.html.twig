@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Membre index{% endblock %}
+
+{% block body %}
+<div class="hero">
+    <h2>{{pageName}}</h2>
+    <section class="cta">
+        <div class="cta-headline">
+            <h3>Le plaisir des balades en plein air</h3>
+        </div>
+        <button class="cta-button">Devenir Gardien</button><button class="cta-button">Demander Gardien</button>
+        <div class="cta-text">
+            <p>Chez <strong>Toulouse AnimalSitter</strong>, les animaux n’ont pas de sentiment d’abandon ou d’ennui.</p>
+        </div>
+    </section>
+</div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Email</th>
+                <th>Roles</th>
+                <th>Password</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Pseudo</th>
+                <th>CreatedAt</th>
+                <th>ModifiedAt</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for membre in membres %}
+            <tr>
+                <td>{{ membre.id }}</td>
+                <td>{{ membre.email }}</td>
+                <td>{{ membre.roles ? membre.roles|json_encode : '' }}</td>
+                <td>{{ membre.password }}</td>
+                <td>{{ membre.nom }}</td>
+                <td>{{ membre.prenom }}</td>
+                <td>{{ membre.pseudo }}</td>
+                <td>{{ membre.createdAt ? membre.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ membre.modifiedAt ? membre.modifiedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('membre_show', {'id': membre.id}) }}">Voir</a>
+                    <a href="{{ path('membre_edit', {'id': membre.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">Pas encore de Gardiens</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('membre_new') }}">Ajouter un Gardien</a>
+{% endblock %}

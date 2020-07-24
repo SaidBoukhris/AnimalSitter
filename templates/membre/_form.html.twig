@@ -1,0 +1,31 @@
+{{ form_start(form) }}
+        <div class="container">
+        <div class="form-row">
+            <div class="col-md-6">
+                <span class="form-text" id="basic-addon3">Nom</span>
+            {{ form_widget(form.nom) }}
+            </div>
+            <div class="col-md-6">
+                <span class="form-text" id="basic-addon3">Prénom</span>
+            {{ form_widget(form.prenom) }}
+            </div>
+            <div class="col-md-6">
+                <span class="form-text" id="basic-addon3">Pseudo</span>
+            {{ form_widget(form.pseudo) }}
+            </div>
+            <div class="col-md-6">
+                <span class="form-text" id="basic-addon3">Email</span>
+            {{ form_widget(form.email) }}
+            </div>
+            <div class="col-md-6">
+                <span class="form-text" id="basic-addon3">Mot de passe</span>
+            {{ form_widget(form.password) }}
+            </div>
+            <div class="col-md-6">
+                <span class="form-text" id="basic-addon3">Confirmer Mot de passe</span>
+            {{ form_widget(form.confirmPassword) }}
+            </div>
+        </div>
+    <button class="btn">{{ button_label|default('Save') }}</button>
+        </div>
+{{ form_end(form) }}
