@@ -1,0 +1,145 @@
+@import url("https://fonts.googleapis.com/css?family=Cabin|Dancing+Script");
+
+/*----Page Styling----*/
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Cabin", Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+
+/*----Masthead----*/
+
+h1 {
+    font-family: "Dancing Script", Times, Serif;
+}
+
+
+/*Used in Main Section*/
+
+h2 {
+    font-family: "Cabin", Times, Serif;
+    font-size: 18px;
+}
+
+
+/*----Call to Action Section----*/
+
+h3 {
+    font-family: "Cabin", Times, Serif;
+    color: #ffffff;
+    font-size: 48px;
+    text-align: center;
+}
+
+.hero {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 0, 0, 0);
+}
+
+.said {
+    background-color: rgba(7, 5, 80, 0);
+    color: rgb(255, 255, 255);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.said1 {
+    background-color: #fff;
+    width: 15rem;
+    color: rgb(56, 56, 56);
+    box-shadow: 0 0 10px 0 black;
+    margin: 0.5rem;
+    padding: 0.5rem;
+}
+
+.cta {
+    background: linear-gradient(rgba(0, 0, 0, 0.685), rgba(0, 0, 0, 0.459)), url("https://www.leparisien.fr/resizer/jFhiL9bFx_QAyRqTl3yxcglNEaQ=/932x582/arc-anglerfish-eu-central-1-prod-leparisien.s3.amazonaws.com/public/EYMM2XAV2ZKTU662PYK6L5B6BE.jpg");
+    background-size: cover;
+}
+
+.cta {
+    display: grid;
+    justify-items: center;
+    width: 80vw;
+    height: 500px;
+    color: #ff0000;
+}
+
+.cta-button {
+    background-color: transparent;
+    color: black;
+    border: 3px solid #9b9b3f;
+    border-radius: 3px;
+    width: 250px;
+    height: 60%;
+    color: white;
+    font-size: 23px;
+}
+
+.cta-text p {
+    color: white;
+    font-size: 20px;
+}
+
+.cta-button:hover {
+    background-color: #666633;
+    transition-duration: 0.6s;
+}
+
+
+/*---Products Section---*/
+
+h4 {
+    font-family: "Dancing Script", Times, Serif;
+    font-size: 36px;
+    grid-column: span 12;
+    text-align: center;
+}
+
+h5 {
+    font-family: "Cabin", Arial, Sans-Serif;
+    font-size: 18px;
+    text-align: center;
+}
+
+.product-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 60px;
+    padding-left: 15px;
+    padding-right: 15px;
+    justify-items: center;
+}
+
+.item img {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+}
+
+
+/*---Footer---*/
+
+footer {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    height: 10rem;
+    background-color: #666633;
+    padding: 15px;
+    margin-top: 30px;
+    color: #cccc99;
+    font-size: 14px;
+}

@@ -2,6 +2,7 @@
 
 {% block title %}Membre index{% endblock %}
 
+
 {% block body %}
 <div class="hero">
     <h2>{{pageName}}</h2>
@@ -15,45 +16,29 @@
         </div>
     </section>
 </div>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Email</th>
-                <th>Roles</th>
-                <th>Password</th>
-                <th>Nom</th>
-                <th>Prenom</th>
-                <th>Pseudo</th>
-                <th>CreatedAt</th>
-                <th>ModifiedAt</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for membre in membres %}
-            <tr>
-                <td>{{ membre.id }}</td>
-                <td>{{ membre.email }}</td>
-                <td>{{ membre.roles ? membre.roles|json_encode : '' }}</td>
-                <td>{{ membre.password }}</td>
-                <td>{{ membre.nom }}</td>
-                <td>{{ membre.prenom }}</td>
-                <td>{{ membre.pseudo }}</td>
-                <td>{{ membre.createdAt ? membre.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ membre.modifiedAt ? membre.modifiedAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>
-                    <a href="{{ path('membre_show', {'id': membre.id}) }}">Voir</a>
-                    <a href="{{ path('membre_edit', {'id': membre.id}) }}">Modifier</a>
-                </td>
-            </tr>
+        <div class="said">
+    {% for membre in membres %}
+    {% set createdAt = membre.createdAt ? membre.createdAt|date('Y-m-d H:i:s') : '' %}
+    {% set modifiedAt = membre.modifiedAt ? membre.modifiedAt|date('Y-m-d H:i:s') : '' %}
+        <div class="said1">
+            <h2 class="">{{ membre.email }}</h2>
+            <span>{{ membre.id }}</span>
+            <p class="">{{ membre.roles ? membre.roles|json_encode : '' }}</p>
+            <p class="">{{ membre.password }}</p>
+            <p class="">{{ membre.nom }}</p>
+            <p class="">{{ membre.prenom }}</p>
+            <p class="">{{ membre.pseudo }}</p>
+            {% if createdAt %}
+            <p class="">{{ createdAt }}</p>
+            {% else %}
+            <p class="">{{ modifiedAt }}</p>
+            {% endif %}
+            <a class="btn btn-primary" href="{{ path('membre_show', {'id': membre.id}) }}">Voir</a>
+            <a class="btn btn-primary" href="{{ path('membre_edit', {'id': membre.id}) }}">Modifier</a>
+        </div>
         {% else %}
-            <tr>
-                <td colspan="10">Pas encore de Gardiens</td>
-            </tr>
+                <h2>Pas encore de Gardiens</h2>
         {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('membre_new') }}">Ajouter un Gardien</a>
+        </div>
+    <a href="{{ path('membre_create') }}">Ajouter un Gardien</a>
 {% endblock %}

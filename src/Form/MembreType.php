@@ -4,6 +4,8 @@ namespace App\Form;
 
 use App\Entity\Membre;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -13,11 +15,11 @@ class MembreType extends AbstractType
     {
         $builder
             ->add('email')
-            ->add('password')
-            ->add('confirmPassword')
-            ->add('nom')
-            ->add('prenom')
-            ->add('pseudo')
+            ->add('password', PasswordType::class)
+            ->add('confirmPassword', PasswordType::class)
+            ->add('nom', TextType::class)
+            ->add('prenom', TextType::class)
+            ->add('pseudo', TextType::class)
         ;
     }
 

@@ -21,14 +21,15 @@ class MembreController extends AbstractController
     public function index(MembreRepository $membreRepository): Response
     {
         return $this->render('membre/index.html.twig', [
-            'membres' => $membreRepository->findAll(),'pageName' => 'Les Gardiens',
+            'membres' => $membreRepository->findAll(),
+            'pageName' => 'Les Gardiens',
         ]);
     }
 
     /**
-     * @Route("/new", name="new", methods={"GET","POST"})
+     * @Route("/create", name="create", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function create(Request $request): Response
     {
         $membre = new Membre();
 
@@ -44,7 +45,7 @@ class MembreController extends AbstractController
             return $this->redirectToRoute('membre_index');
         }
 
-        return $this->render('membre/new.html.twig', [
+        return $this->render('membre/create.html.twig', [
             'membre' => $membre,
             'form' => $form->createView(),
             'pageName' => 'Ajouter',
@@ -71,6 +72,7 @@ class MembreController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $membre->setmodifiedAt(new \DateTimeImmutable);
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('membre_index');

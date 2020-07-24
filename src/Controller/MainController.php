@@ -24,7 +24,7 @@ class MainController extends AbstractController
     public function inscription():Response
     {
         return $this->render('main/inscription.html.twig', [
-            'pageName' => 'Inscription',
+            'pageName' => 'Gardien : Guide Complet',
         ]);
     }
 
@@ -34,7 +34,7 @@ class MainController extends AbstractController
     public function presentation():Response
     {
         return $this->render('main/presentation.html.twig', [
-            'pageName' => 'Notre fonctionnement',
+            'pageName' => 'Le pet-sitting, comment ça marche ? ',
         ]);
     }
 
@@ -44,7 +44,7 @@ class MainController extends AbstractController
     public function tarif():Response
     {
         return $this->render('main/tarif.html.twig', [
-            'pageName' => 'Nos Prestations',
+            'pageName' => 'Profitez de nos services en',
         ]);
     }
 

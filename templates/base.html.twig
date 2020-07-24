@@ -6,69 +6,78 @@
       <meta charset="UTF-8">
 
       <title>{% block title %}AnimalSitter{% endblock %}</title>
-
+      <link rel="icon" href="{{asset('img/logo.png')}}" />
       <link rel="stylesheet" href="https://bootswatch.com/4/sandstone/bootstrap.min.css">
-      <link rel="stylesheet" href="{{asset('css/style.css')}}">
+      <link rel="stylesheet" href="{{asset('css/main.css')}}">
       {% block stylesheets %}{% endblock %}
 
   </head>
   <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="{{path('main')}}">AnimalSitter</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="{{path('main')}}">
+        <img src="{{asset('img/logo.png')}}" width="50" height="50" alt="logo Chien">
+          AnimalSitter</a>
 
-      <div class="collapse navbar-collapse" id="navbarColor03">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="{{path('presentation')}}">Présentation</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{path('tarif')}}">Tarifs</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{path('membre_index')}}">Gardiens</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{path('main')}}">Connexion</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{path('contact')}}">Contactez-nous</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{path('inscription')}}">Devenir petsitter</a>
-          </li>
-{% if app.user %}
-          <li class="nav-item">
-            <a class="nav-link" href="{{path('admin_main')}}">admin accueil</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{path('admin_presentation')}}">admin presentation</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{path('admin_inscription')}}">admin inscription</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{path('admin_tarif')}}">admin tarif</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{path('admin_contact')}}">admin contact</a>
-          </li>
-{% endif %}
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Rechercher">
-          <button class="btn btn-secondary my-2 my-sm-0" type="submit">GO</button>
-        </form>
-      </div>
-    </nav>
-    
-    {% block body %}{% endblock %}
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-    {# <script src="{{asset('js/tether.min.js')}}"></script> #}
-    
+        <div class="collapse navbar-collapse" id="navbarColor03">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="{{path('presentation')}}">Présentation</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{path('tarif')}}">Tarifs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{path('contact')}}">Contactez-nous</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{path('inscription')}}">Devenir petsitter</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{path('membre_index')}}">Gardiens</a>
+            </li>
+          {% if app.user %}
+            <li class="nav-item">
+              <a class="nav-link" href="{{path('main')}}">Connexion</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{path('admin_main')}}">admin accueil</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{path('admin_presentation')}}">admin presentation</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{path('admin_inscription')}}">admin inscription</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{path('admin_tarif')}}">admin tarif</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{path('admin_contact')}}">admin contact</a>
+            </li>
+          {% endif %}
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Rechercher">
+            <button class="btn btn-secondary my-2 my-sm-0" type="submit">GO</button>
+          </form>
+        </div>
+      </nav>
+
+    <div class="container">
+      {% block body %}{% endblock %}
+      <footer class="footer mt-auto py-3">
+        <div class="container">
+          <span class="text-muted">©2017 AnimalSitter | CGU </span>
+        </div>
+      </footer>
+    </div>
+
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
