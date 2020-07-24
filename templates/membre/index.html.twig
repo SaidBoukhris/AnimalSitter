@@ -16,9 +16,10 @@
         </div>
     </section>
 </div>
+        <h1>{{ pluralize(membres|length, 'membre') }}</h1>
         <div class="said">
     {% for membre in membres %}
-    {% set createdAt = membre.createdAt ? membre.createdAt|date('Y-m-d H:i:s') : '' %}
+    {% set createdAt = membre.createdAt ? membre.createdAt|date('d/m/Y H:i:s') : '' %}
     {% set modifiedAt = membre.modifiedAt ? membre.modifiedAt|date('Y-m-d H:i:s') : '' %}
         <div class="said1">
             <h2 class="">{{ membre.email }}</h2>
@@ -29,9 +30,9 @@
             <p class="">{{ membre.prenom }}</p>
             <p class="">{{ membre.pseudo }}</p>
             {% if createdAt %}
-            <p class="">{{ createdAt }}</p>
+            <p class="">Publié le {{ createdAt }}</p>
             {% else %}
-            <p class="">{{ modifiedAt }}</p>
+            <p class="">Modifié le {{ modifiedAt }}</p>
             {% endif %}
             <a class="btn btn-primary" href="{{ path('membre_show', {'id': membre.id}) }}">Voir</a>
             <a class="btn btn-primary" href="{{ path('membre_edit', {'id': membre.id}) }}">Modifier</a>

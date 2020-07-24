@@ -1,4 +1,27 @@
-{{ form_start(form) }}
+{% extends 'base.html.twig' %}
+
+{% block title %}New Membre{% endblock %}
+
+{% block body %}
+   <div class="hero">
+    <h2>{{pageName}}</h2>
+    <section class="cta">
+        <div class="cta-headline">
+            <h3>Le plaisir des balades en plein air</h3>
+        </div>
+        <button class="cta-button">Devenir Gardien</button><button class="cta-button">Demander Gardien</button>
+        <div class="cta-text">
+            <p>Chez <strong>Toulouse AnimalSitter</strong>, les animaux n’ont pas de sentiment d’abandon ou d’ennui.</p>
+        </div>
+    </section>
+</div>
+
+    {{ form_start(form) }}
+    {% if editMode %}
+            <h1>Modification</h1>
+        {% else %}
+            <h1>Création</h1>
+        {% endif %}
         <div class="container">
         <div class="form-row">
             <div class="col-md-6">
@@ -29,3 +52,6 @@
     <button class="btn">{{ button_label|default('Save') }}</button>
         </div>
 {{ form_end(form) }}
+
+    <a href="{{ path('membre_index') }}">back to list</a>
+{% endblock %}
