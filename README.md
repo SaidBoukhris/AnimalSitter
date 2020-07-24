@@ -5,7 +5,7 @@
 * Mettre en relation des Gardiens et des Clients pour la garde d'animaux de compagnie
 * Devenir Gardien (aprés une inscription sur l'application)
 * Demande de garde d'animaux (aprés une inscription sur l'application)
-* Présentation des profils des gardiens
+* Présentation du profil des gardiens
 * Astuce et bien-être animal
 * Témoignages
 
