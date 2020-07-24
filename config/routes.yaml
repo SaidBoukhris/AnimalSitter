@@ -1,0 +1,19 @@
+# main:
+#    path: /
+#    controller: App\Controller\MainController::index
+
+# inscription:
+#    path: /inscription
+#    controller: App\Controller\MainController::inscription
+
+# presentation:
+#    path: /presentation
+#    controller: App\Controller\MainController::presentation
+
+# tarif:
+#    path: /tarif
+#    controller: App\Controller\MainController::tarif
+
+# contact:
+#    path: /contact
+#    controller: App\Controller\MainController::contact
