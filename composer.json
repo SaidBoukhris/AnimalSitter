@@ -1,4 +1,6 @@
 {
+    "name": "saidboukhris/animalsitter",
+    "description": "animalsitter",
     "type": "project",
     "license": "proprietary",
     "require": {
